@@ -93,6 +93,18 @@ h2{font-size:clamp(1.6rem,3.6vw,2.4rem)}
 .steps h4{font-size:1.2rem;margin:12px 0 4px}.steps p{margin:0;color:var(--muted)}
 .notice{max-width:1000px;margin:26px auto 0;background:#fff;border-left:4px solid var(--red);padding:14px 18px;border-radius:10px;font-size:.92rem;color:var(--muted)}
 
+/* how to buy */
+.buy-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:0 auto;counter-reset:none}
+.buy-steps li{position:relative;background:#fff;border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:var(--shadow)}
+.buy-steps li:not(:last-child)::after{content:"›";position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-size:2rem;color:var(--pink-3);font-weight:900}
+.buy-steps i{font-style:normal;display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;font-weight:900;font-size:1.2rem}
+.buy-steps h4{font-size:1.15rem;margin:12px 0 4px}.buy-steps p{margin:0;color:var(--muted);font-size:.95rem}
+.ship{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1100px;margin:28px auto 0}
+.ship-card{display:flex;gap:16px;align-items:center;background:linear-gradient(120deg,var(--pink-2),#FFE8D6);border-radius:var(--radius);padding:22px 26px}
+.ship-ic{font-size:2.4rem;background:#fff;border-radius:18px;width:68px;height:68px;display:grid;place-items:center;flex:none}
+.ship-card h4{margin:0 0 2px;font-size:1.2rem}.ship-card p{margin:0;color:var(--muted)}
+.buy-cta{text-align:center;margin-top:28px}
+
 /* carousel */
 .carousel{position:relative;max-width:760px;margin:0 auto;overflow:hidden}
 .track{display:flex;transition:transform .6s cubic-bezier(.6,.05,.3,1)}
@@ -169,6 +181,8 @@ h2{font-size:clamp(1.6rem,3.6vw,2.4rem)}
   .cards{grid-template-columns:1fr;max-width:440px}
   .ing-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:1fr}
+  .buy-steps{grid-template-columns:1fr 1fr}.buy-steps li::after{display:none}
+  .ship{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
   .slide{padding:8px 4px}.nav-btn{display:none}
   .contact-box{flex-direction:column;text-align:center}.contact-actions{justify-content:center}
