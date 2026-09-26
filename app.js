@@ -19,12 +19,13 @@
 
   // ---- 詢問清單（促購） ----
   const picked = new Set();
+  let plan = '';
   const refreshInquiry = () => {
-    const list = [...picked];
+    const list = [...picked, ...(plan ? ['方案 ' + plan] : [])];
     $('#inquiry').hidden = !list.length;
     $('#inqList').textContent = list.join('、');
     $('#inqCount').textContent = list.length || '';
-    const body = encodeURIComponent(`您好，我想詢問試用體驗價：${list.join('、') || '（款式）'}`);
+    const body = encodeURIComponent(`您好，我想購買／詢問：${list.join('、') || '（款式）'}`);
     $('#mailBtn').href = `mailto:${EMAIL}?subject=${encodeURIComponent('能量糖試用詢問')}&body=${body}`;
     $$('.card').forEach(c => {
       const b = c.querySelector('.btn-add'), on = picked.has(c.dataset.name);
@@ -41,8 +42,16 @@
     refreshInquiry(); toast('三款體驗組已加入詢問');
     $('#contact').scrollIntoView();
   });
+  // 價格方案
+  $$('.plan').forEach(p => p.querySelector('.btn-plan').addEventListener('click', () => {
+    plan = p.dataset.plan;
+    $$('.plan').forEach(x => { const on = x === p; x.classList.toggle('picked', on); x.querySelector('.btn-plan').textContent = on ? '✓ 已選擇' : '選這個方案'; });
+    refreshInquiry(); toast(`已選擇：${plan}`);
+    setTimeout(() => $('#contact').scrollIntoView(), 500);
+  }));
+
   $('#copyInq').addEventListener('click', async () => {
-    const msg = `您好，我想詢問試用體驗價：${[...picked].join('、')}`;
+    const msg = `您好，我想購買／詢問：${[...picked, ...(plan ? ['方案 ' + plan] : [])].join('、')}`;
     try { await navigator.clipboard.writeText(msg); toast('已複製，貼到 LINE 傳給我們吧！'); }
     catch { toast(msg); }
     setTimeout(() => window.open(LINE, '_blank', 'noopener'), 600);
