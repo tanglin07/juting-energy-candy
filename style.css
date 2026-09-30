@@ -69,7 +69,8 @@ h2{font-size:clamp(1.6rem,3.6vw,2.4rem)}
 .card img{aspect-ratio:1;object-fit:cover;width:100%}
 .card-body{padding:20px 22px 24px}
 .card-body h3{margin:0;font-size:1.4rem}
-.en{margin:0 0 8px;color:var(--pink);font-size:.85rem;font-weight:700;letter-spacing:.05em}
+.card-body .tagline{margin:2px 0 0;font-weight:700;color:var(--red);letter-spacing:.2em;font-size:.95rem}
+.card-body .en{margin:0 0 8px;color:var(--pink);font-size:.85rem;font-weight:700;letter-spacing:.05em}
 .card-body p{color:var(--muted);font-size:.95rem}
 .btn-add{width:100%;margin-top:6px}
 .btn-add.added{background:var(--ink)}
