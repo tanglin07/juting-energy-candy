@@ -211,3 +211,11 @@ h2{font-size:clamp(1.6rem,3.6vw,2.4rem)}
   .mbar em{font-style:normal;background:#fff;color:var(--line);border-radius:999px;padding:0 7px;margin-left:4px;font-size:.8rem}
   .mbar em:empty{display:none}
 }
+
+/* hero 加入徽章 */
+.join-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:84px;height:84px;margin-right:14px;vertical-align:middle;position:relative;top:-.35em;border-radius:50%;background:var(--line);color:#fff;text-decoration:none;font-family:"Noto Sans TC",sans-serif;line-height:1.05;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--line),0 10px 24px -8px rgba(6,199,85,.7);transform:rotate(-12deg);animation:badgePulse 2.2s ease-in-out infinite}
+.join-badge span{font-size:1.45rem;font-weight:900;letter-spacing:.08em}
+.join-badge small{font-size:.8rem;font-weight:700;letter-spacing:.12em;margin-top:2px}
+.join-badge:hover{animation-play-state:paused;transform:rotate(0) scale(1.08)}
+@keyframes badgePulse{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(-8deg) scale(1.08)}}
+@media (max-width:900px){.hero .eyebrow{margin-bottom:14px}.join-badge{width:66px;height:66px;margin-right:10px;top:-.12em}.join-badge span{font-size:1.15rem}.join-badge small{font-size:.68rem}}
